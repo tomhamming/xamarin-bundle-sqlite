@@ -41,7 +41,27 @@ namespace SqlTester
                 currByte = Marshal.ReadByte(ptr);
             }
             var version = Encoding.UTF8.GetString(versionBytes.ToArray(), 0, versionBytes.Count);
-            Debug.WriteLine($"SQLite version {version}");
+            Debug.WriteLine($"Built-in SQLite version {version}");
+
+            try
+            {
+                Debug.WriteLine("Trying to get bundled SQLite version...");
+                versionBytes = new List<byte>();
+                ptr = sqlite3_libversion_ot();
+                currByte = Marshal.ReadByte(ptr);
+                while (currByte > 0)
+                {
+                    versionBytes.Add(currByte);
+                    ptr += 1;
+                    currByte = Marshal.ReadByte(ptr);
+                }
+                version = Encoding.UTF8.GetString(versionBytes.ToArray(), 0, versionBytes.Count);
+                Debug.WriteLine($"Bundled SQLite version {version}");
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"Exception: {ex.ToString()}");
+            }
 
             return true;
         }
