@@ -194,3 +194,9 @@ FakesAssemblies/
 
 # Visual Studio 6 workspace options file
 *.opt
+
+*.pbxuser
+*.mode1v3
+build/
+xcuserdata
+*.xcbkptlist
