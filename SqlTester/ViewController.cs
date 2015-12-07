@@ -6,6 +6,7 @@ using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Threading;
 
 namespace SqlTester
 {
@@ -101,6 +102,8 @@ namespace SqlTester
 
             var mode = SQLITE_OPEN_FULLMUTEX | SQLITE_OPEN_READWRITE | SQLITE_OPEN_CREATE;
 
+            var mre1 = new ManualResetEvent(false);
+
             var trans1 = Task.Run(() =>
             {
                 Debug.WriteLine("Start first thread. Opening.");
@@ -121,6 +124,9 @@ namespace SqlTester
                     return;
                 Debug.WriteLine("First is begun");
 
+                mre1.Set();
+
+                //simulate something long-running in the database work
                 System.Threading.Thread.Sleep(TimeSpan.FromSeconds(5));
 
                 Debug.WriteLine("End first");
@@ -130,9 +136,9 @@ namespace SqlTester
                 sqlite3_close(db1);
             });
 
-             var trans2 = Task.Run(() =>
+            var trans2 = Task.Run(() =>
             {
-                System.Threading.Thread.Sleep(TimeSpan.FromMilliseconds(200));
+                mre1.WaitOne();
 
                 Debug.WriteLine("Start second thread. Opening.");
                 var db2 = IntPtr.Zero;
@@ -146,15 +152,15 @@ namespace SqlTester
 
                 if (!_checkError(sqlite3_busy_timeout(db2, 10000), db2))
                     return;
-                
-                System.Threading.Thread.Sleep(TimeSpan.FromSeconds(1));
 
+                //Beginning this transaction should block until the first transaction is committed.
+                //On the simulator this works. On the device it fails instantly.
                 Debug.WriteLine("Begin second");
                 if (!_executeStmt("BEGIN IMMEDIATE TRANSACTION", db2))
                     return;
-                Debug.WriteLine("Second is begun");
 
-                System.Threading.Thread.Sleep(TimeSpan.FromMilliseconds(100));
+                //You shouldn't see this log until the first transaction above is committed
+                Debug.WriteLine("Second is begun");
 
                 Debug.WriteLine("End second");
                 if (!_executeStmt("COMMIT", db2))
