@@ -16,6 +16,9 @@ namespace SqlTester
         [DllImport("__Internal", CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Unicode)]
         static extern IntPtr sqlite3_libversion_ot();
 
+        [DllImport("sqlite3", CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Unicode)]
+        static extern IntPtr sqlite3_libversion();
+
         // class-level declarations
 
         public override UIWindow Window {
@@ -29,7 +32,7 @@ namespace SqlTester
             // If not required for your application you can safely delete this method
 
             List<byte> versionBytes = new List<byte>();
-            var ptr = sqlite3_libversion_ot();
+            var ptr = sqlite3_libversion();
             var currByte = Marshal.ReadByte(ptr);
             while (currByte > 0)
             {

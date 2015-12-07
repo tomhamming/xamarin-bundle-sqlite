@@ -74,6 +74,7 @@
     <MtouchUseSGen>true</MtouchUseSGen>
     <MtouchUseRefCounting>true</MtouchUseRefCounting>
     <MtouchProfiling>true</MtouchProfiling>
+    <MtouchExtraArgs>-gcc_flags "-L${ProjectDir} -lot_sqlite -force_load ${ProjectDir}/libot_sqlite.a"</MtouchExtraArgs>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
