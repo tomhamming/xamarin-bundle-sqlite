@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F78C7B9B1C172A13002CBA92 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F78C7B961C1729BF002CBA92 /* libsqlite3.tbd */; };
 		F7BB38861C165618007AB505 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F7BB38851C165618007AB505 /* main.m */; };
 		F7BB38891C165618007AB505 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F7BB38881C165618007AB505 /* AppDelegate.m */; };
 		F7BB388C1C165618007AB505 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7BB388B1C165618007AB505 /* ViewController.m */; };
 		F7BB388F1C165618007AB505 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7BB388D1C165618007AB505 /* Main.storyboard */; };
 		F7BB38911C165618007AB505 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F7BB38901C165618007AB505 /* Assets.xcassets */; };
 		F7BB38941C165618007AB505 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7BB38921C165618007AB505 /* LaunchScreen.storyboard */; };
-		F7BB38AC1C165AD0007AB505 /* libot_sqlite.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F7BB38A11C165695007AB505 /* libot_sqlite.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,16 +31,10 @@
 			remoteGlobalIDString = F75701AF1A8A60A700FF6327;
 			remoteInfo = ot_sqlite.testing;
 		};
-		F7BB38A41C1656A1007AB505 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F7BB389B1C165694007AB505 /* ot_sqlite.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = F755E8071A89817800166098;
-			remoteInfo = ot_sqlite;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F78C7B961C1729BF002CBA92 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		F7BB38811C165618007AB505 /* SqlTesteriOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SqlTesteriOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7BB38851C165618007AB505 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F7BB38871C165618007AB505 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -59,7 +53,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F7BB38AC1C165AD0007AB505 /* libot_sqlite.a in Frameworks */,
+				F78C7B9B1C172A13002CBA92 /* libsqlite3.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -69,6 +63,7 @@
 		F7BB38781C165618007AB505 = {
 			isa = PBXGroup;
 			children = (
+				F78C7B961C1729BF002CBA92 /* libsqlite3.tbd */,
 				F7BB389B1C165694007AB505 /* ot_sqlite.xcodeproj */,
 				F7BB38831C165618007AB505 /* SqlTesteriOS */,
 				F7BB38821C165618007AB505 /* Products */,
@@ -130,7 +125,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				F7BB38A51C1656A1007AB505 /* PBXTargetDependency */,
 			);
 			name = SqlTesteriOS;
 			productName = SqlTesteriOS;
@@ -217,14 +211,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		F7BB38A51C1656A1007AB505 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = ot_sqlite;
-			targetProxy = F7BB38A41C1656A1007AB505 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		F7BB388D1C165618007AB505 /* Main.storyboard */ = {
