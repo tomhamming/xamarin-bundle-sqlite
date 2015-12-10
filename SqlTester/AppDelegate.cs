@@ -13,7 +13,7 @@ namespace SqlTester
     [Register("AppDelegate")]
     public class AppDelegate : UIApplicationDelegate
     {
-        [DllImport("sqlite3", CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Unicode)]
+        [DllImport("__Internal", CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Unicode)]
         static extern IntPtr sqlite3_libversion();
 
         // class-level declarations
