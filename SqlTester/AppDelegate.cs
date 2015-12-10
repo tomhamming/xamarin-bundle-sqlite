@@ -13,9 +13,6 @@ namespace SqlTester
     [Register("AppDelegate")]
     public class AppDelegate : UIApplicationDelegate
     {
-//        [DllImport("__Internal", CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Unicode)]
-//        static extern IntPtr sqlite3_libversion_ot();
-
         [DllImport("sqlite3", CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Unicode)]
         static extern IntPtr sqlite3_libversion();
 
@@ -41,27 +38,7 @@ namespace SqlTester
                 currByte = Marshal.ReadByte(ptr);
             }
             var version = Encoding.UTF8.GetString(versionBytes.ToArray(), 0, versionBytes.Count);
-            Debug.WriteLine($"Built-in SQLite version {version}");
-
-//            try
-//            {
-//                Debug.WriteLine("Trying to get bundled SQLite version...");
-//                versionBytes = new List<byte>();
-//                ptr = sqlite3_libversion_ot();
-//                currByte = Marshal.ReadByte(ptr);
-//                while (currByte > 0)
-//                {
-//                    versionBytes.Add(currByte);
-//                    ptr += 1;
-//                    currByte = Marshal.ReadByte(ptr);
-//                }
-//                version = Encoding.UTF8.GetString(versionBytes.ToArray(), 0, versionBytes.Count);
-//                Debug.WriteLine($"Bundled SQLite version {version}");
-//            }
-//            catch (Exception ex)
-//            {
-//                Debug.WriteLine($"Exception: {ex.ToString()}");
-//            }
+            Debug.WriteLine($"Using SQLite version {version}");
 
             return true;
         }

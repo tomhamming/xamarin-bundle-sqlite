@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F78C7B9B1C172A13002CBA92 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F78C7B961C1729BF002CBA92 /* libsqlite3.tbd */; };
+		F7273F991C1A27FC00EA3D19 /* libot_sqlite.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F7BB38A11C165695007AB505 /* libot_sqlite.a */; };
 		F7BB38861C165618007AB505 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F7BB38851C165618007AB505 /* main.m */; };
 		F7BB38891C165618007AB505 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F7BB38881C165618007AB505 /* AppDelegate.m */; };
 		F7BB388C1C165618007AB505 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7BB388B1C165618007AB505 /* ViewController.m */; };
@@ -17,6 +17,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		F7273F971C1A27F500EA3D19 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F7BB389B1C165694007AB505 /* ot_sqlite.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = F755E8071A89817800166098;
+			remoteInfo = ot_sqlite;
+		};
 		F7BB38A01C165695007AB505 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = F7BB389B1C165694007AB505 /* ot_sqlite.xcodeproj */;
@@ -53,7 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F78C7B9B1C172A13002CBA92 /* libsqlite3.tbd in Frameworks */,
+				F7273F991C1A27FC00EA3D19 /* libot_sqlite.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -125,6 +132,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				F7273F981C1A27F500EA3D19 /* PBXTargetDependency */,
 			);
 			name = SqlTesteriOS;
 			productName = SqlTesteriOS;
@@ -211,6 +219,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F7273F981C1A27F500EA3D19 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = ot_sqlite;
+			targetProxy = F7273F971C1A27F500EA3D19 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		F7BB388D1C165618007AB505 /* Main.storyboard */ = {
