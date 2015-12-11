@@ -12,7 +12,7 @@ namespace SqlTester
 {
     public partial class ViewController : UIViewController
     {
-        [DllImport("sqlite3", CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Unicode)]
+        [DllImport("__Internal", CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Unicode)]
         static extern int sqlite3_open_v2(IntPtr filename, out IntPtr db, int flags, IntPtr vfs);
         static int sqlite3_open_v2(string filename, out IntPtr db, int flags, IntPtr vfs)
         {
